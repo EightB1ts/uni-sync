@@ -16,7 +16,7 @@ Uni-Sync is configured by modifying a few lines of code within the ```src/main.r
 
 #### a. VENDOR_ID & PRODUCT_ID
 
-**~ LINUX ~**
+**- LINUX -**
 
 These two fields represent the ID of the controller. This will likely be different for the SLV2 controller and will need to be changed. You can locate the ID for your controller by utilizing the ```lsusb``` command in Linux. Example output:
 ```
@@ -24,7 +24,7 @@ These two fields represent the ID of the controller. This will likely be differe
 ```
 In this example, **0cf2** is the VENDOR_ID and **a100** is the PRODUCT_ID.
 
-**~ WINDOWS ~**
+**- WINDOWS -**
 
 Alternatively, you can get this information by locating the controller within Device Manager.
 
