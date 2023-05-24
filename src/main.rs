@@ -2,8 +2,12 @@ mod controller;
 use rusb;
 use controller::{ Controller, Channel, FANCOUNTS, FANSPEEDS};
 
+// USB ID
 static VENDOR_ID: u16 = 0x0cf2;
 static PRODUCT_ID: u16 = 0xa100;
+
+// Controller Configs
+static SYNC_LEDS: bool = true;
 static CHANNELS: [controller::Channel; 4] = [
     // Channel 1
     Channel {
@@ -40,7 +44,7 @@ fn main() {
                         device: device,
                         device_desc: device_desc,
                         handle: handle,
-                        sync_lights: true
+                        sync_lights: SYNC_LEDS
                     };
 
                     controller::sync(&mut controldev, CHANNELS).ok();
