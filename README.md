@@ -14,7 +14,7 @@ Uni-Sync requires [Rust](https://www.rust-lang.org/learn/get-started) to build. 
 
 Uni-Sync is configured by modifying a few lines of code within the ```src/main.rs``` file. 
 
-##### a. VENDOR_ID & PRODUCT_ID
+#### a. VENDOR_ID & PRODUCT_ID
 
 These two fields represent the ID of the controller. This will likely be different for the SLV2 controller and will need to be changed. You can locate the ID for your controller by utilizing the ```lsusb``` command in Linux. Example output:
 ```
@@ -22,13 +22,13 @@ These two fields represent the ID of the controller. This will likely be differe
 ```
 In this example, **0cf2** is the VENDOR_ID and **a100** is the PRODUCT_ID
 
-##### b. SYNC_LEDS
+#### b. SYNC_LEDS
 
 A boolean field used to switch on/off RGB synchronization based on the ARGB header on your motherboard.
 Default: **true**
 Supported Values: **true**, **false**
 
-##### c. FAN_SPEED
+#### c. FAN_SPEED
 
 An enum field used to configure the Fan Speed configuration for each channel on the controller. The following options are:
 - **PWM**: Will set channel to listen to PWM signal from motherboard.
