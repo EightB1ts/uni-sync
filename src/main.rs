@@ -1,6 +1,6 @@
 mod controller;
 use rusb;
-use controller::{ Controller, Channel, FANCOUNTS, FANSPEEDS};
+use controller::{ Controller, Channel, FANSPEEDS};
 
 // USB ID
 static VENDOR_ID: u16 = 0x0cf2;
@@ -11,23 +11,19 @@ static SYNC_LEDS: bool = true;
 static CHANNELS: [controller::Channel; 4] = [
     // Channel 1
     Channel {
-        fan_count: FANCOUNTS::Count000,
         fan_speed: FANSPEEDS::FullSpeed
     },
     // Channel 2
     Channel {
-        fan_count: FANCOUNTS::Count000,
         fan_speed: FANSPEEDS::FullSpeed
     },
     // Channel 3
     Channel {
-        fan_count: FANCOUNTS::Count003,
-        fan_speed: FANSPEEDS::FullSpeed
+        fan_speed: FANSPEEDS::PWM
     },
     // Channel 4
     Channel {
-        fan_count: FANCOUNTS::Count003,
-        fan_speed: FANSPEEDS::FullSpeed
+        fan_speed: FANSPEEDS::PWM
     }
 ];
 
