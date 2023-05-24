@@ -40,4 +40,4 @@ An enum field used to configure the Fan Speed configuration for each channel on 
 
 ### 2. Run Install Script (Linux Only)
 
-Please note, this will set up a service named UniSync and will execute once on system startup.
+Please note, this will set up a service named uni-sync and will execute once on system startup.
