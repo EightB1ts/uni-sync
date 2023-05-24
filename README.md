@@ -1,7 +1,7 @@
 # Uni-Sync
 ## A Synchronization Tool for Lian Li Uni Controllers
 
-This tool allows you to configures the synchronization settings for SLV1 and SLV2 Uni Fan controllers on any OS. No more booting into Windows to enable PWM or LED synchronization. 
+This tool allows you to configure the synchronization settings for SLV1 and SLV2 Uni Fan controllers on any OS. No more booting into Windows to enable PWM or LED synchronization. 
 - Enable/Disable Motherboard PWM Sync
 - Enable/Disable LED ARGB Header Sync
 - Manually Set Fan Speeds
@@ -24,13 +24,13 @@ In this example, **0cf2** is the VENDOR_ID and **a100** is the PRODUCT_ID
 
 ##### b. SYNC_LEDS
 
-A boolean field used to switch on/off RGB syncronization based on the ARGB header on your motherboard.
+A boolean field used to switch on/off RGB synchronization based on the ARGB header on your motherboard.
 Default: **true**
 Supported Values: **true**, **false**
 
 ##### c. FAN_SPEED
 
-A enum field used to configure the Fan Speed configuration for each channel on the controller. The following options are:
+An enum field used to configure the Fan Speed configuration for each channel on the controller. The following options are:
 - **PWM**: Will set channel to listen to PWM signal from motherboard.
 - **Quiet**: Will set channel to around 800 RPM.
 - **HighSpeed**: Will set channel to around 1500 RPM.
