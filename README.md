@@ -1,5 +1,5 @@
 # Uni-Sync
-## A Synchronization Tool for Lian Li Uni Controllers
+### A Synchronization Tool for Lian Li Uni Controllers
 
 This tool allows you to configure the synchronization settings for SLV1 and SLV2 Uni Fan controllers on any OS. No more booting into Windows to enable PWM or LED synchronization. 
 - Enable/Disable Motherboard PWM Sync
