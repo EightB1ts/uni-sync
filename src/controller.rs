@@ -1,4 +1,4 @@
-use std::time::Duration;
+use std::{thread, time::Duration};
 use crate::rusb;
 
 pub struct Controller {
@@ -43,7 +43,9 @@ pub fn sync(controller: &mut Controller, channels: [Channel; 4])-> Result<(), u3
         send_config(controller, UNIHUB_ACTION_ADDRESS, &[0x30, 0x00])?;
         send_commit(controller, UNIHUB_COMMIT_ADDRESS)?;
     }
-
+        
+    // Sleep for 1.5 seconds to avoid race condition
+    thread::sleep(Duration::from_millis(1500));
 
     for i in 0..channels.len() {
 
