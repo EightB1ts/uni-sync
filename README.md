@@ -28,6 +28,8 @@ In this example, **0cf2** is the VENDOR_ID and **a100** is the PRODUCT_ID.
 
 Alternatively, you can get this information by locating the controller within Device Manager.
 
+![Display Manager Screenshot](https://raw.githubusercontent.com/EightB1ts/uni-sync/main/images/device-mgr-screenshot.PNG)
+
 #### b. SYNC_LEDS
 
 A boolean field used to switch on/off RGB synchronization based on the ARGB header on your motherboard.
