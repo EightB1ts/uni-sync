@@ -13,9 +13,9 @@ This tool allows you to configure the synchronization settings for Uni Fan contr
 
 | Device                          | PID          | Status                          | Set Fan RPM | Set PWM Sync | Set ARGB Sync |
 | ------------------------------- | ------------ | ------------------------------- | ------------ | ----------- | ----------- |
-| LianLi-UNI SL                   | `7750, a100` | Supported                       | ✔️           | ✔️         | ✔️         |
+| LianLi-UNI SL                   | `7750, a100` | Supported                       | ✔️           | ✔️          | ✔️         |
 | LianLi-UNI AL                   | `a101`       | Untested                        | ❓          | ❓         | ❓         |
-| LianLi-UNI SL-Infinity          | `a102`       | Untested                        | ❓          | ❓         | ❓         |
+| LianLi-UNI SL-Infinity          | `a102`       | Supported                       | ✔️           | ✔️         | ✔️         |
 | LianLi-UNI SL v2                | `a103, a105` | Untested                        | ❓          | ❓         | ❓         |
 | LianLi-UNI AL v2                | `a104`       | Untested                        | ❓          | ❓         | ❓         |
 
