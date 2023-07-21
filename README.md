@@ -81,7 +81,7 @@ The following options can be configured:
 
 ## Removal
 
-This will delete the uni-sync.json file.
+This will backup the uni-sync.json file before removing.
 
 ### a. Windows
 
