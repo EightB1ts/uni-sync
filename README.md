@@ -1,7 +1,7 @@
 # Uni-Sync
 ### A Synchronization Tool for Lian Li Fan Controllers
 
-This tool allows you to configure the synchronization settings for Uni Fan controllers on any OS. No more booting into Windows to enable PWM or LED synchronization. 
+This tool allows you to configure the synchronization settings for Uni Fan controllers on any OS. No more booting into Windows to enable PWM or ARGB synchronization. 
 - Enable/Disable Motherboard PWM Sync
 - Enable/Disable LED ARGB Header Sync
 - Manually Set Fan Speeds
