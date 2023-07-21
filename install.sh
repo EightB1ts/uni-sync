@@ -43,6 +43,8 @@ WantedBy=multi-user.target
 SERVICE
     sudo mv -f uni-sync.service /etc/systemd/system
     sudo mv -f uni-sync /usr/sbin
+    sudo cp -n uni-sync.json /usr/sbin
+    sudo chown $USER /usr/sbin/uni-sync.json
     sudo systemctl enable uni-sync
     sudo systemctl restart uni-sync
 }
@@ -55,6 +57,5 @@ read -p "Would you like to install as Service? [N/y]: " -n 1 -r
 echo 
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-    # do dangerous stuff
     install_app
 fi

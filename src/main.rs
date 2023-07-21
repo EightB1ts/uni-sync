@@ -1,54 +1,26 @@
-mod controller;
-use rusb;
-use controller::{ Controller, Channel, FANSPEEDS};
+use std::env;
 
-// USB ID
-static VENDOR_ID: u16 = 0x0cf2;
-static PRODUCT_ID: u16 = 0xa100;
+mod devices;
 
-// Controller Configs
-static SYNC_LEDS: bool = true;
-static CHANNELS: [controller::Channel; 4] = [
-    // Channel 1
-    Channel {
-        fan_speed: FANSPEEDS::FullSpeed
-    },
-    // Channel 2
-    Channel {
-        fan_speed: FANSPEEDS::FullSpeed
-    },
-    // Channel 3
-    Channel {
-        fan_speed: FANSPEEDS::PWM
-    },
-    // Channel 4
-    Channel {
-        fan_speed: FANSPEEDS::PWM
-    }
-];
+fn main() -> Result<(), std::io::Error> {
+ 
+    let mut configs = devices::Configs {
+        configs: vec![]
+    };
 
-fn main() {
+    let mut config_path = env::current_exe()?;
+    config_path.pop();
+    config_path.push("uni-sync.json");
 
-    for device in rusb::devices().unwrap().iter() {
-        let device_desc = device.device_descriptor().unwrap();
-        if device_desc.vendor_id() == VENDOR_ID && device_desc.product_id() == PRODUCT_ID {
-
-            match device.open() {
-                Ok(handle) => {
-
-                    let mut controldev = Controller {
-                        device: device,
-                        device_desc: device_desc,
-                        handle: handle,
-                        sync_lights: SYNC_LEDS
-                    };
-
-                    controller::sync(&mut controldev, CHANNELS).ok();
-                },
-                Err(e) => panic!("Device found but failed to open: {}", e),
-            }
-        }
+    if !config_path.exists() {
+        std::fs::write(&config_path, serde_json::to_string_pretty(&configs).unwrap())?;
     }
 
-    /**/
+    let config_content = std::fs::read_to_string(&config_path).unwrap();
+    configs = serde_json::from_str::<devices::Configs>(&config_content).unwrap();
+
+    let new_configs = devices::run(configs);
+    std::fs::write(&config_path, serde_json::to_string_pretty(&new_configs).unwrap())?;
+
+    Ok(())
 }
