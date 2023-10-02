@@ -88,17 +88,10 @@ pub fn run(mut existing_configs: Configs) -> Configs {
             for x in 0..channels.len() {
                 
                 // Disable Sync to fan header
-                let mut channel_byte: u8 = ((2 * x) * 16).try_into().unwrap();
-                if x == 0 { channel_byte = 16 }
+                let mut channel_byte = 0x10 << x;
 
                 if channels[x].mode == "PWM" {
-                    channel_byte = match channel_byte {
-                        16 => 17,
-                        32 => 34,
-                        64 => 68,
-                        128 => 136,
-                        _ => 17
-                    }
+                    channel_byte = channel_byte | 0x1 << x;
                 }
 
                 let _ = match &hiddevice.product_id() {
