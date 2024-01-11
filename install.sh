@@ -45,7 +45,9 @@ ExecStart=${BIN_PREFIX}/uni-sync ${CONF_PREFIX}/uni-sync.json
 WantedBy=multi-user.target
 SERVICE
     sudo mv -f uni-sync.service /etc/systemd/system
-    sudo mv -f uni-sync ${BIN_PREFIX}
+    sudo mv -f uni-sync ${BIN_PREFIX} 
+
+    mkdir -p ${CONF_PREFIX}
     sudo cp -n uni-sync.json ${CONF_PREFIX}
     sudo chown $USER ${CONF_PREFIX}/uni-sync.json
     sudo systemctl enable uni-sync
