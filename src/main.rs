@@ -22,11 +22,15 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 }
 
 fn get_config_path() -> Result<PathBuf, Box<dyn std::error::Error>> {
-    // TODO add support for other OS and use their standard system config directory
     let config_dir = match env::consts::OS {
         "windows" => {
-            let appdata = env::var("APPDATA")?;
-            PathBuf::from(appdata)
+            let program_data = match env::var("PROGRAMDATA") {
+                Ok(path) => path,
+                Err(_) => {
+                    return Err("Unable to get PROGRAMDATA environment variable".into());
+                }
+            };
+            PathBuf::from(program_data).join("uni-sync")
         }
         _ => PathBuf::from("/etc/uni-sync"),
     };
