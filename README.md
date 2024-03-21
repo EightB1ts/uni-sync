@@ -22,13 +22,23 @@ This tool allows you to configure the synchronization settings for Uni Fan contr
 
 Uni-Sync requires [Rust](https://www.rust-lang.org/learn/get-started) to build. Please install before proceeding.
 
-### a. Windows
+### Windows
 
 Run install.bat. This will build the application and move it into `%APPDATA%\Local\uni-sync`. Added to startup.
 
-### b. Linux
+### Linux
 
-Run install.sh. Please note, this will set up a service named uni-sync and will execute once on system startup.
+#### Fedora
+
+```bash
+- sudo dnf copr enable nezia/uni-sync 
+- sudo dnf install uni-sync
+```
+
+#### Manual installation
+
+1. Clone the repository.
+2. Run install.sh. Please note, this will set up a service named uni-sync and will execute once on system startup.
 
 ## Configuration
 
