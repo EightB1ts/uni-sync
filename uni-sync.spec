@@ -41,10 +41,11 @@ Requires:       libusb1
 %{cargo_license} > LICENSE.dependencies
 
 %install
-%cargo_install
 
+mkdir -p %{buildroot}%{_sbindir}
 mkdir -p %{buildroot}%{_sysconfdir}/%{name}
 
+install -p -m 755 target/release/%{crate} %{buildroot}%{_sbindir}/%{crate}
 install -m 644 uni-sync.json %{buildroot}%{_sysconfdir}/%{name}/uni-sync.json
 install -Dm 644 uni-sync.service %{buildroot}%{_unitdir}/uni-sync.service
 
@@ -65,7 +66,7 @@ install -Dm 644 uni-sync.service %{buildroot}%{_unitdir}/uni-sync.service
 %license LICENSE
 %license LICENSE.dependencies
 %doc README.md
-%{_bindir}/uni-sync
+%{_sbindir}/uni-sync
 %{_unitdir}/uni-sync.service
 %config(noreplace) %{_sysconfdir}/%{name}/uni-sync.json
 
