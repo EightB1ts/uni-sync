@@ -15,7 +15,7 @@ License:        MIT
 # LICENSE.dependencies contains a full license breakdown
 
 URL:            https://github.com/nezia1/uni-sync
-Source:         https://github.com/nezia1/uni-sync/archive/refs/tags/%{name}-%{version}.tar.gz
+Source:         https://github.com/nezia1/uni-sync/archive/refs/tags/%{version}.tar.gz
 
 BuildRequires:  cargo-rpm-macros >= 26, rust-hidapi-devel
 BuildRequires:  libusb1-devel
