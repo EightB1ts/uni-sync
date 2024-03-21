@@ -5,19 +5,19 @@
 			"sync_rgb": false,
 			"channels": [
 				{
-					"method": "Manual",
+					"mode": "Manual",
 					"speed": 50
 				},
 				{
-					"method": "Manual",
+					"mode": "Manual",
 					"speed": 50
 				},
 				{
-					"method": "Manual",
+					"mode": "Manual",
 					"speed": 50
 				},
 				{
-					"method": "PWM",
+					"mode": "PWM",
 					"speed": 50
 				}
 			]
