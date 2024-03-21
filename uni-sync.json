@@ -1,3 +1,26 @@
 {
-    "configs": []
+	"configs": [
+		{
+			"device_id": "VID:3314/PID:41216/SN:624314930",
+			"sync_rgb": false,
+			"channels": [
+				{
+					"method": "Manual",
+					"speed": 50
+				},
+				{
+					"method": "Manual",
+					"speed": 50
+				},
+				{
+					"method": "Manual",
+					"speed": 50
+				},
+				{
+					"method": "PWM",
+					"speed": 50
+				}
+			]
+		}
+	]
 }
