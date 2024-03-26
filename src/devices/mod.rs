@@ -43,7 +43,13 @@ pub fn run(mut existing_configs: Configs) -> Configs {
 
         if VENDOR_IDS.contains(&hiddevice.vendor_id()) && PRODUCT_IDS.contains(&hiddevice.product_id()) {
 
-            let serial_number: &str = hiddevice.serial_number().unwrap();
+            let serial_number: &str = match hiddevice.serial_number() {
+                Some(sn) => sn,
+                None => {
+                    println!("Serial number not available for device {:?}", hiddevice);
+                    continue; 
+                }
+            };
             let device_id: String = format!("VID:{}/PID:{}/SN:{}", hiddevice.vendor_id().to_string(), hiddevice.product_id().to_string(), serial_number.to_string());
             let hid: HidDevice = match api.open(hiddevice.vendor_id(), hiddevice.product_id()) {
                 Ok(hid) => hid,

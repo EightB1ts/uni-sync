@@ -1,0 +1,6 @@
+[Unit]
+Description=Uni-Sync service
+[Service]
+ExecStart=/usr/sbin/uni-sync
+[Install]
+WantedBy=multi-user.target
