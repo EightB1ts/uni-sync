@@ -49,9 +49,9 @@ pub fn run(mut existing_configs: Configs) -> Configs {
             let serial_number: &str = hiddevice.serial_number().unwrap();
             let device_id: String = format!(
                 "VID:{}/PID:{}/SN:{}",
-                hiddevice.vendor_id().to_string(),
-                hiddevice.product_id().to_string(),
-                serial_number.to_string()
+                hiddevice.vendor_id(),
+                hiddevice.product_id(),
+                serial_number
             );
             let hid: HidDevice = match api.open(hiddevice.vendor_id(), hiddevice.product_id()) {
                 Ok(hid) => hid,
@@ -94,12 +94,12 @@ pub fn run(mut existing_configs: Configs) -> Configs {
             // Avoid Race Condition
             thread::sleep(time::Duration::from_millis(200));
 
-            for x in 0..channels.len() {
+            for (x, channel) in channels.iter().enumerate() {
                 // Disable Sync to fan header
                 let mut channel_byte = 0x10 << x;
 
-                if channels[x].mode == "PWM" {
-                    channel_byte = channel_byte | 0x1 << x;
+                if channel.mode == "PWM" {
+                    channel_byte |= 0x1 << x;
                 }
 
                 let _ = match &hiddevice.product_id() {
@@ -115,7 +115,7 @@ pub fn run(mut existing_configs: Configs) -> Configs {
                 thread::sleep(time::Duration::from_millis(200));
 
                 // Set Channel Speed
-                if channels[x].mode == "fan-curve" {
+                if channel.mode == "fan-curve" {
                     if let Some(fan_curve_file) = &channels[x].fan_curve {
                         match fancurve::read_fan_curve(fan_curve_file) {
                             Ok(fan_curve) => {
@@ -134,8 +134,8 @@ pub fn run(mut existing_configs: Configs) -> Configs {
                             Err(e) => eprintln!("Error reading fan curve file: {}", e),
                         }
                     }
-                } else if channels[x].mode == "Manual" {
-                    let mut speed = channels[x].speed as f64;
+                } else if channel.mode == "Manual" {
+                    let mut speed = channel.speed as f64;
                     if speed > 100.0 {
                         speed = 100.0
                     }
