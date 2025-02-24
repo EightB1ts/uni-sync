@@ -43,6 +43,12 @@ Run install.bat. This will build the application and move it into `%APPDATA%\Loc
 - sudo dnf install uni-sync
 ```
 
+#### Ubuntu
+
+```bash
+- sudo apt install libudev-dev
+```
+
 #### Manual installation
 
 1. Clone the repository.
