@@ -47,6 +47,9 @@ Run install.bat. This will build the application and move it into `%APPDATA%\Loc
 
 ```bash
 - sudo apt install libudev-dev
+- git clone https://github.com/EightB1ts/uni-sync && cd uni-sync
+- chmod +x install.sh
+- sudo ./install.sh
 ```
 
 #### Manual installation
