@@ -14,7 +14,7 @@ This tool allows you to configure the synchronization settings for Uni Fan contr
 
 | Distribution | Status                                                                                                                                                                                                |
 |--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Fedora       | [![Copr build status](https://copr.fedorainfracloud.org/coprs/nezia/uni-sync/package/uni-sync/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/nezia/uni-sync/package/uni-sync/) |
+| Fedora       | [![Copr build status](https://copr.fedorainfracloud.org/coprs/eightb1ts/uni-sync/package/uni-sync/status_image/last_build.png)](https://copr.fedorainfracloud.org/coprs/eightb1ts/uni-sync/package/uni-sync/) |
 
 ## Device Support
 
@@ -39,7 +39,7 @@ Run install.bat. This will build the application and move it into `%APPDATA%\Loc
 #### Fedora
 
 ```bash
-- sudo dnf copr enable nezia/uni-sync 
+- sudo dnf copr enable eightb1ts/uni-sync 
 - sudo dnf install uni-sync
 ```
 
