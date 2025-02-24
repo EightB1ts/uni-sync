@@ -14,8 +14,8 @@ Summary:        A Synchronization Tool for Lian-Li Fan Controllers
 License:        MIT
 # LICENSE.dependencies contains a full license breakdown
 
-URL:            https://github.com/nezia1/uni-sync
-Source:         https://github.com/nezia1/uni-sync/archive/refs/tags/%{version}.tar.gz
+URL:            https://github.com/eightb1ts/uni-sync
+Source:         https://github.com/eightb1ts/uni-sync/archive/refs/tags/%{version}.tar.gz
 
 BuildRequires:  cargo-rpm-macros >= 26, rust-hidapi-devel
 BuildRequires:  libusb1-devel
