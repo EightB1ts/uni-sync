@@ -50,7 +50,12 @@ pub fn run(mut existing_configs: Configs) -> Configs {
                     continue; 
                 }
             };
-            let device_id: String = format!("VID:{}/PID:{}/SN:{}", hiddevice.vendor_id().to_string(), hiddevice.product_id().to_string(), serial_number.to_string());
+
+            let path: &str = match hiddevice.path() {
+                p => p.to_str().unwrap_or("unknown"),
+            };
+
+            let device_id: String = format!("VID:{}/PID:{}/SN:{}/PATH:{}", hiddevice.vendor_id().to_string(), hiddevice.product_id().to_string(), serial_number.to_string(), path.to_string());
             let hid: HidDevice = match api.open(hiddevice.vendor_id(), hiddevice.product_id()) {
                 Ok(hid) => hid,
                 Err(_) => {
