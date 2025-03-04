@@ -1,5 +1,8 @@
 #!/bin/bash
 
+BIN_PREFIX=/usr/local/sbin
+CONF_PREFIX=/etc/uni-sync
+
 # Check for Rust Function
 check_rust() {
     echo '🦀 Checking for Rust'
@@ -37,14 +40,16 @@ install_app() {
 [Unit]
 Description=Uni-Sync service
 [Service]
-ExecStart=/usr/sbin/uni-sync
+ExecStart=${BIN_PREFIX}/uni-sync ${CONF_PREFIX}/uni-sync.json
 [Install]
 WantedBy=multi-user.target
 SERVICE
     sudo mv -f uni-sync.service /etc/systemd/system
-    sudo mv -f uni-sync /usr/sbin
-    sudo cp -n uni-sync.json /usr/sbin
-    sudo chown $USER /usr/sbin/uni-sync.json
+    sudo mv -f uni-sync ${BIN_PREFIX} 
+
+    mkdir -p ${CONF_PREFIX}
+    sudo cp -n uni-sync.json ${CONF_PREFIX}
+    sudo chown $USER ${CONF_PREFIX}/uni-sync.json
     sudo systemctl enable uni-sync
     sudo systemctl restart uni-sync
 }
