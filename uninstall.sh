@@ -6,8 +6,8 @@ if [[ $REPLY =~ ^[Yy]$ ]]
 then
     sudo systemctl disable uni-sync
     sudo rm /etc/systemd/system/uni-sync.service
-    cp -f /usr/sbin/uni-sync.json ./uni-sync-backup.json
-    sudo rm /usr/sbin/uni-sync.json
-    sudo rm /usr/sbin/uni-sync
+    cp -f /etc/uni-sync/uni-sync.json ./uni-sync-backup.json
+    sudo rm /etc/uni-sync/uni-sync.json
+    sudo rm -r /etc/uni-sync
 fi
 echo 'Removed Uni-Sync'
