@@ -19,6 +19,22 @@ fn main() -> Result<(), std::io::Error> {
         config_path.push("uni-sync.json");
     }
 
+    #[cfg(target_os = "linux")]
+    {
+        config_path.clear();
+        config_path.push("/etc/uni-sync/uni-sync.json");
+    }
+
+    #[cfg(target_os = "linux")]
+    {
+        let dir = std::path::Path::new("/etc/uni-sync");
+        if !dir.exists() {
+            if let Err(e) = std::fs::create_dir(dir) {
+                eprintln!("Failed to create directory: {}, error: {}", dir.to_string_lossy(), e);
+            }
+        }
+    }
+    
     if !config_path.exists() {
         println!("Config path {:?} does not exist. Generating default configuration.", config_path);
         std::fs::write(&config_path, serde_json::to_string_pretty(&configs).unwrap())?;
