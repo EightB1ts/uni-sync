@@ -7,7 +7,7 @@
 %global crate uni-sync
 
 Name:           uni-sync
-Version:        0.3.0
+Version:        0.3.1
 Release:        %autorelease
 Summary:        A Synchronization Tool for Lian-Li Fan Controllers
 
