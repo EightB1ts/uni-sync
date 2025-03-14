@@ -56,7 +56,7 @@ pub fn run(mut existing_configs: Configs) -> Configs {
             };
 
             let device_id: String = format!("VID:{}/PID:{}/SN:{}/PATH:{}", hiddevice.vendor_id().to_string(), hiddevice.product_id().to_string(), serial_number.to_string(), path.to_string());
-            let hid: HidDevice = match api.open(hiddevice.vendor_id(), hiddevice.product_id()) {
+            let hid: HidDevice = match api.open_path(hiddevice.path()) {
                 Ok(hid) => hid,
                 Err(_) => {
                     println!("Please run uni-sync with elevated permissions.");
